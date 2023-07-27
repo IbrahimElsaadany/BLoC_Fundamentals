@@ -185,7 +185,9 @@ So, we gonna deal with Cubit in this repository and you can later migrate to BLo
     Two arguments are required for BlocProvider (create,child).<p>After wrapping, the code must be like this :</p>
       
       BlocProvider<CubitClass,CubitStates>(
-        create: (BuildContext context) => CubitClass(),
+        create: (BuildContext context) => CubitClass(),  /* Cascade operator can be used here
+                                                            to execute initializations.
+                                                            Ex : CubitClass()..openDB() */
         child: BlocConsumer(
           listener:(BuildContext context,CubitStates state){
           
