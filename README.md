@@ -288,7 +288,8 @@ So, we gonna deal with Cubit in this repository and you can later migrate to BLo
               CubitClass cubit = BlocProvider.of<CubitClass>(context);
               /* BlocProvider.of(context) returns an instance of CubitClass related to the
                  given context. This line of code must be memorized because it's primary to
-                 use the cubit functions and fields. */
+                 use the cubit functions and fields. The context given must be a context of
+                 BlocConsumer or BlocBuilder. */
               return Scaffold(
               backgroundColor:screen1Color,
               body:Center(
