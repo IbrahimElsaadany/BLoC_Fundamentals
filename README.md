@@ -455,9 +455,8 @@ The problem must be solved successfully.
       )
   A/ Wrap Column by BlocProvider, and wrap each of Widget1 and Widget2 by BlocConsumer.
   </li>
-  <li>Q: If I want to rebuild a popup widget (like AlertDialog, SnackBar, BottomSheet, ...etc). Should I give them a BlocProvider?<br/>
-    A/ No, you don't have to give them a BlocProvider (like different screen). Just, give them a BlocConsumer (or a BlocBuilder),<br/>
-    &nbsp; &nbsp; &nbsp;but they must be called from a widget under a BlocProvider.
+  <li>Q: If I want to rebuild a popup widget (like AlertDialog, SnackBar, BottomSheet, ...etc). Should I give it a BlocProvider?<br/>
+    A/ Yes, you have to give it a BlocProvider Because it has a different context.
   </li>
   <li>Q: Is it a must to use statefulWidget with BLoC (or Cubit)?<br/>
     A/ No, you don't have to use statefulWidget if you don't need it (like our example : we could convert it to stateless widgets).
@@ -468,6 +467,7 @@ The problem must be solved successfully.
       <li>You can put one BlocProvider at the top of the widget tree (above the MaterialApp) and then you can use BLoC anywhere in the application.</li>
       <li>You can use a BlocProvider in a screen, pass the BLoC instance to other screens, and finally pass it to BlocConsumers (Builders or Listenres) through bloc argument. You can also pass the context of BlocProvider and make the bloc instance [BlocProvider.<CubitClass>of(passedContext)] while passing to bloc argument.</li>
       <li>You can use a BlocProvider in a screen and use BlocProvider.value in other screens and then pass the BLoC instance to value argument of BlocProvider.value in each of the other screens.</li>
+      <li>You can use MultiBlocProvider above MaterialApp and define all the BlocProviders you need to use in it without giving any of them a child.</li>
     </ul>
   </li>
   <li>Q: What are BlocBuilder and BlocListener ?<br/>
