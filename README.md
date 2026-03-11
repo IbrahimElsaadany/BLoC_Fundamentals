@@ -475,11 +475,16 @@ The problem must be solved successfully.
 
     BlocBuilder<CubitClass, CubitStates>(
       builder: (context, state) { // Required parameter.
+
+        // Note: every time you use emit, this block of code executes,
+        // so try not to initialize values here like text fields.
+
         // Return widget here based on CubitClass's state.
       }
       // Optional parameters :
       bloc:     // Takes the bloc (or cubit) instance of CubitClass.
       buildWhen:  // Condition of triggering emit to rebuild. (Boolean value)
+      // If buildWhen returns false, but a bloc over it (like theme bloc) rebuilds, it will rebuild also.
     )
   <h3 align="center">+</h3>
 
